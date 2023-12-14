@@ -1,5 +1,4 @@
 
-
 // List Thing
 
 let container = document.querySelector(".history-ul")
@@ -13,7 +12,7 @@ function CreateList() {
     rh.classList.add("fa-solid")
     rh.classList.add("fa-trash")
 
-    li.appendChild(rh)   
+    li.appendChild(rh)
 }
 
 // Adding Event Listener on Task List
@@ -25,15 +24,15 @@ container.addEventListener("click", (e) => {
     }
 }, false)
 
- // Function to Save Profile Data
+// Function to Save Profile Data
 
- function SaveGameHistory() {
-        localStorage.setItem("data", container.innerHTML)
-    }
+function SaveGameHistory() {
+    localStorage.setItem("data", container.innerHTML)
+}
 
-    function showProfileData() {
-        container.innerHTML = localStorage.getItem("data")
-    }
+function ShowGameHistory() {
+    container.innerHTML = localStorage.getItem("data")
+}
 
 // Random Number Concept
 
@@ -41,14 +40,14 @@ let randomNumber;
 
 function GenerateRandomNumber() {
     randomNumber = Math.round(Math.random() * 100)
-    // console.log(randomNumber);
 }
 
 let numberSubmitButton = document.getElementById("numbersubmit")
 let playerInput = document.getElementById("playerinput")
 let result = document.getElementById("result")
 
-// Adding and Modifying Guessed Number
+
+// Adding Guessed Number to Guess List
 
 let guesses = document.getElementById("guesses")
 
@@ -56,7 +55,7 @@ let allGuessedInput = []
 
 function PushGuesses() {
 
-    let newGuessedInput = document.getElementById("playerinput").value
+    let newGuessedInput = playerInput.value
 
     if (newGuessedInput) {
         allGuessedInput.push(newGuessedInput);
@@ -97,59 +96,21 @@ numberSubmitButton.addEventListener("click", (e) => {
 })
 
 
-let clickCounter = 0
-
-
-function Validation() {
-    clickCounter++
-    if (playerInput.value == randomNumber) {
-        result.textContent = "Woah, You Got it in " + clickCounter + " Attempts"
-        CreateCloseButton(),
-        CreateList(),
-        SaveGameHistory()
-    }
-    else if (playerInput.value > randomNumber && playerInput.value - randomNumber >= 15) {
-        result.textContent = "Not Even Close, Less Than That"
-        ClearResult()
-    }
-    else if (playerInput.value > randomNumber && playerInput.value - randomNumber <= 15) {
-        result.textContent = "You Are Close, Little Less Than That"
-        ClearResult()
-    }
-    else if (playerInput.value < randomNumber && randomNumber - playerInput.value >= 15) {
-        result.textContent = "Not Even Close, More Than That"
-        ClearResult()
-    }
-    else if (playerInput.value < randomNumber && randomNumber - playerInput.value <= 15) {
-        result.textContent = "You Are Close, Little More Than That"
-        ClearResult()
-    }
-    else {
-        result.textContent = "Not Even Close, Try Again"
-        ClearResult()
-    }
-}
-
-function ClearResult() {
-    setTimeout(() => {
-        result.textContent = "Try Another Number!"
-        playerInput.value = ""
-    }, 1600);
-}
-
 //     Close Gamecard Button
-
-function CreateCloseButton() {
-    document.getElementById("closeAfterGame").style.visibility = "visible"
-}
-
-function HideCloseButton() {
-    document.getElementById("closeAfterGame").style.visibility = "hidden"
-}
 
 let closeAfterGameButton = document.getElementById("closeAfterGame")
 
+function CreateCloseButton() {
+    closeAfterGameButton.style.visibility = "visible"
+}
+
+function HideCloseButton() {
+    closeAfterGameButton.style.visibility = "hidden"
+}
+
+
 closeAfterGameButton.addEventListener("click", (e) => {
+
     try {
         e.preventDefault(),
             CloseAllCards(),
@@ -164,6 +125,45 @@ closeAfterGameButton.addEventListener("click", (e) => {
     }
 })
 
+// Function to Show Result 
+
+function ShowResult(res) {
+    result.textContent = "Checking....."
+    setTimeout(() => {
+        result.textContent = res
+        playerInput.value = ""
+    }, 1000);
+}
+
+let clickCounter = 0
+
+function Validation() {
+    clickCounter++
+    if (playerInput.value == randomNumber) {
+        ShowResult(playername.value + ", You Got " + randomNumber + " in " + clickCounter + " Attempts")
+        CreateCloseButton(),
+            CreateList(),
+            SaveGameHistory(),
+            numberSubmitButton.setAttribute('disabled', '')
+    }
+    else if (playerInput.value > randomNumber && playerInput.value - randomNumber >= 15) {
+        ShowResult(res = "Not Even Close, Less Than " + playerInput.value)
+    }
+    else if (playerInput.value > randomNumber && playerInput.value - randomNumber <= 15) {
+        ShowResult(res = "You Are Close, Little Less Than "  + playerInput.value)
+    }
+    else if (playerInput.value < randomNumber && randomNumber - playerInput.value >= 15) {
+        ShowResult(res = "Not Even Close, More Than "  + playerInput.value)
+    }
+    else if (playerInput.value < randomNumber && randomNumber - playerInput.value <= 15) {
+        ShowResult(res = "You Are Close, Little More Than "  + playerInput.value)
+    }
+    else {
+        ShowResult(res = "Not Even Close, Try Again")
+    }
+}
+
+
 //   Adding and Removing Cards
 
 function ApplyBlurFilter() {
@@ -173,18 +173,21 @@ function ApplyBlurFilter() {
 }
 
 function RemoveBlurFilter() {
-    document.querySelector(".landing-container").style.filter = "blur(0)"
+    document.querySelector(".landing-container").style.filter = "blur(0)",
     document.querySelector(".user-info").classList.remove("show-user-info")
     allGuessedInput = []
 }
 
 function CloseAllCards() {
     RemoveBlurFilter(),
-        HideCloseButton(),
-        document.querySelector(".game-container").classList.remove("show-game-container")
-    document.getElementById("playername").value = ""
+    HideCloseButton(),
+    allGuessedInput = [],
+    clickCounter = 0,
+    numberSubmitButton.removeAttribute('disabled'),
+    document.querySelector(".game-container").classList.remove("show-game-container"),
+    document.getElementById("playername").value = "",
+    playerInput.value = "",
     result.textContent = "Enter the Number!"
-    allGuessedInput = []
 }
 
 function ShowGameCard() {
@@ -209,20 +212,19 @@ closeGameCard.addEventListener("click", CloseAllCards)
 
 let playButton = document.getElementById("playbutton")
 
-playButton.addEventListener("click", (e) => {
-    e.preventDefault()
-    if (playername.value !== "") {
-        playerInput.focus = true,
-            playername.focus = false,
-            ShowGameCard(),
-            GenerateRandomNumber(),
-            username.innerText = playername.value
+playButton.addEventListener("click", (event) => {
+    event.preventDefault()
+    if (!playername.value == "") {
+        ShowGameCard(),
+        RemoveBlurFilter(),
+        GenerateRandomNumber(),
+        username.innerText = playername.value
     }
 })
 
 window.addEventListener("load", () => {
-    showProfileData(),
-    CloseAllCards(),
-    playername.value = ""
-    allGuessedInput = []
+    ShowGameHistory(),
+        CloseAllCards(),
+        playername.value = ""
+        allGuessedInput = []
 })
