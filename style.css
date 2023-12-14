@@ -89,7 +89,6 @@ body {
     justify-content: center;
     box-shadow: 1px 1px 10px #fff;
     backdrop-filter: blur(35px);
-    z-index: 3;
     transform: translateY(-200%);
     transition: 0.3s ease;
 }
