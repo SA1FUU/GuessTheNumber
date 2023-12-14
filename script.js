@@ -216,7 +216,6 @@ playButton.addEventListener("click", (event) => {
     event.preventDefault()
     if (!playername.value == "") {
         ShowGameCard(),
-        RemoveBlurFilter(),
         GenerateRandomNumber(),
         username.innerText = playername.value
     }
