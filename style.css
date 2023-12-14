@@ -1,443 +1,466 @@
-      * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-            overflow: hidden;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
 
-        body {
-            height: 100vh;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            background-image: linear-gradient(to right, #434343 0%, black 100%);
-            opacity: 0.5;
-        }
+body {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: linear-gradient(to right, #434343 0%, black 100%);
+    opacity: 0.5;
+}
 
-        .header {
-            box-shadow: 1px 1px 10px rgb(159, 153, 153);
-            text-shadow: 1px 1px 10px rgb(40, 138, 138);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px 0;
-            width: 100%;
-            z-index: 3;
-            position: fixed;
-            top: 0;
-        }
+.header {
+    box-shadow: 1px 1px 10px rgb(159, 153, 153);
+    text-shadow: 1px 1px 10px rgb(40, 138, 138);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+    width: 100%;
+    z-index: 3;
+    position: fixed;
+    top: 0;
+}
 
-        .header h1 {
-            color: white;
-        }
+.header h1 {
+    color: white;
+}
 
-        .landing-container {
-            width: 35%;
-            height: 50vh;
-            padding: 20px 0;
-            margin-top: 20px;
-            border: 2px dotted grey;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
+.landing-container {
+    width: 35%;
+    height: 50vh;
+    padding: 20px 0;
+    margin-top: 20px;
+    border: 2px dotted grey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
 
-        .landing-container h2 {
-            width: 80%;
-            padding: 20px 0;
-            color: rgba(196, 190, 190, 0.893);
-        }
+.landing-container h2 {
+    width: 80%;
+    padding: 20px 0;
+    color: rgba(196, 190, 190, 0.893);
+}
 
-        .landing-container h2 b {
-            color: rgb(241, 225, 225);
-            text-shadow: 1px 1px 1px #dcd9d9;
-        }
+.landing-container h2 b {
+    color: rgb(241, 225, 225);
+    text-shadow: 1px 1px 1px #dcd9d9;
+}
 
-        .landing-container button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            border: none;
-            width: 200px;
-            cursor: pointer;
-            border-radius: 20px;
-            background-image: linear-gradient(to right, #434343 0%, black 100%);
-            color: #fff;
-            font-weight: 700;
-            transition: 0.3s ease;
-            letter-spacing: 1px;
-        }
+.landing-container button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    width: 200px;
+    cursor: pointer;
+    border-radius: 20px;
+    background-image: linear-gradient(to right, #434343 0%, black 100%);
+    color: #fff;
+    font-weight: 700;
+    transition: 0.3s ease;
+    letter-spacing: 1px;
+    box-shadow: 0px 0px 5px #cccccc7e;
+}
 
-        .landing-container button:hover {
-            background-image: linear-gradient(to right, black 0%, #434343 100%);
-            box-shadow: 2px 2px 10px #f2ecec;
-        }
+.landing-container button:hover {
+    background-image: linear-gradient(to right, black 0%, #434343 100%);
+    box-shadow: 2px 2px 10px #f2ecec;
+}
 
+.user-info {
+    position: absolute;
+    top: 150px;
+    height: 250px;
+    width: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 1px 10px #fff;
+    backdrop-filter: blur(35px);
+    z-index: 3;
+    transform: translateY(-200%);
+    transition: 0.3s ease;
+}
+
+.user-info.show-user-info {
+    transform: translateY(0);
+}
+
+.user-info h2 {
+    color: #fff;
+    text-shadow: 1px 1px 10px rgb(69, 147, 147);
+}
+
+.user-info form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    height: 60%;
+}
+
+.user-info form input {
+    border: none;
+    outline: none;
+    padding: 8px 10px;
+    color: #434343;
+    opacity: 2;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.user-info form button {
+    padding: 10px 5px;
+    width: 60%;
+    margin-top: 5px;
+    color: #fff;
+    font-weight: 600;
+    background-image: linear-gradient(to right, #434343 0%, black 100%);
+    box-shadow: 0px 0px 5px #ccc;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+}
+
+.user-info form button:hover {
+    background-image: linear-gradient(to right, black 0%, #434343 100%);
+    box-shadow: 1px 1px 12px #f2ecec;
+}
+
+.user-info .fa-x {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bolder;
+    transition: 0.4s ease-in;
+    border-radius: 50%;
+    padding: 3px 5px;
+}
+
+.user-info .fa-x:hover{
+    box-shadow: 1px 1px 5px grey;
+    transform: rotate(180deg);
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-image: linear-gradient(to right, #434343 0%, black 100%);
+    position: absolute;
+    top: 100px;
+    width: 40%;
+    height: 60vh;
+    box-shadow: 1px 1px 10px #c9c4c4;
+    transform: translateY(-200%);
+    transition: 0.3s ease;
+}
+
+.game-container.show-game-container {
+    transform: translateY(0);
+}
+
+.game-container h3 {
+    color: #fff;
+    margin-top: -40px;
+}
+
+.Guess-Form {
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.Guess-Form input {
+    border: none;
+    outline: none;
+    padding: 12px 20px;
+    color: rgb(23, 5, 5);
+    letter-spacing: 1px;
+}
+
+.Guess-Form button {
+    cursor: pointer;
+    border: none;
+    color: rgb(157, 100, 100);
+    padding: 8px 15px 9px 15px;
+    transition: all 0.3s ease;
+}
+
+.Guess-Form button:hover {
+    box-shadow: 1px 1px 10px #e1dddd;
+}
+
+.Guess-Form button i {
+    font-size: 1.2rem;
+}
+
+.game-container h2 {
+    color: #fff;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    text-shadow: 1px 1px 10px rgb(26, 25, 27);
+}
+
+.game-container .fa-x {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    color: #fff;
+    cursor: pointer;
+    padding: 3px 5px;
+    border-radius: 50%;
+    transition: 0.4s ease-in-out;
+}
+
+.game-container .fa-x:hover{
+    box-shadow: 1px 1px 5px #ccc;
+    transform: rotate(180deg);
+}
+
+.closeAfterGame {
+    padding: 10px 30px;
+    margin: 10px 0 10px 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 25px;
+    background-image: linear-gradient(to right, #434343 0%, black 100%);
+    box-shadow: 0px 0px 5px #e1dddd;
+    color: #fff;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+    visibility: hidden;
+}
+
+.closeAfterGame:hover {
+    background-image: linear-gradient(to right, black 0%, #434343 100%);
+    box-shadow: 1px 1px 10px #fff;
+}
+
+.history-container {
+    position: absolute;
+    right: 10px;
+    top: 100px;
+    height: 60vh;
+    z-index: 6;
+    backdrop-filter: blur(35px);
+    width: 250px;
+    box-shadow: 1px 1px 10px #e6dfdf;
+    background-image: linear-gradient(to right, #434343 0%, black 100%);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transform: translateX(200%);
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.history-container.show-hc {
+    transform: translateX(0);
+}
+
+.history-container h2 {
+    position: absolute;
+    top: 0;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    color: #e6dfdf;
+    box-shadow: 1px 1px 10px #fff;
+    text-shadow: 1px 1px 10px rgb(47, 166, 166);
+    z-index: 5;
+}
+
+.history-container ul {
+    margin-top: 60px;
+    text-align: center;
+    width: 95%;
+    padding: 2px 10px;
+    backdrop-filter: blur(10px);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.history-container ul li {
+    padding: 10px 5px;
+    color: #f2ecec;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    font-size: 1rem;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 1px 5px #e1dddd;
+}
+
+.fa-trash{
+    width: 50%;
+    opacity: 2;
+    cursor: pointer;
+    padding: 5px;
+    transform: scale(1.3);
+    position: absolute;
+    display: none;
+}
+
+.history-container ul li:hover .fa-trash {
+    display: block;
+    color: #fff;
+    background: transparent;
+    backdrop-filter: blur(2px);
+    opacity: 3;
+    color: snow;
+    box-shadow: 0px 0px 10px #000;
+    text-shadow: 0px 0px 10px #000;
+}
+
+@media (max-width:1000px) {
+    .fa-trash {
+        width: 10%;
+        padding: 4px 5px;
+        position: absolute;
+        right: 15px;
+        transform: scale(1);
+        background: grey;
+        border-radius: 50%;
+    }
+}
+
+#guesses {
+    color: #ccc;
+    margin: 10px 0;
+    box-shadow: 1px 1px 10px #434343;
+    padding: 5px;
+}
+
+#bar,
+#chc {
+    position: absolute;
+    top: 2rem;
+    right: 1rem;
+    transform: scale(1.5);
+    color: #ccc;
+    cursor: pointer;
+    z-index: 6;
+}
+
+#chc {
+    position: absolute;
+    right: 1.1rem;
+    transform: scale(1.3);
+    display: none;
+}
+
+
+@media (max-width:900px) {
+    .landing-container {
+        width: 60%;
+    }
+
+    .game-container {
+        width: 80%;
+    }
+}
+
+
+@media (max-width:600px) {
+    .header h1 {
+        padding: 0 20px;
+        font-size: 1.5rem;
+    }
+
+    .landing-container {
+        margin-top: -50px;
+        width: 90%;
+        padding: 0;
+    }
+
+    .game-container {
+        width: 90%;
+    }
+
+    .landing-container h2 {
+        padding: 10px 0;
+    }
+
+    .history-container {
+        position: absolute;
+        top: 80px;
+        height: 80vh;
+    }
+
+    #bar,
+    #chc {
+        top: 27px;
+    }
+
+    #result, #guesses{
+        font-size: 80%;
+    }
+}
+
+/* Major Changes for Small Devics */
+
+@media (max-width:600px) {
         .user-info {
+            transform: translateY(0);
+            transform: scale(0.00001);
+            overflow: hidden;
+            transition: 0.3s ease;
             position: absolute;
-            top: 150px;
-            height: 250px;
-            width: 40vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 1px 1px 10px #fff;
-            backdrop-filter: blur(25px);
-            transform: translateY(-200%);
+            top: 200px;
             transition: 0.3s ease;
         }
 
         .user-info.show-user-info {
-            transform: translateY(0);
-        }
-
-        .user-info h2 {
-            color: #fff;
-            text-shadow: 1px 1px 10px rgb(69, 147, 147);
-        }
-
-        .user-info form {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: 10px;
-            height: 60%;
-        }
-
-        .user-info form input {
-            border: none;
-            outline: none;
-            padding: 8px 10px;
-            color: #434343;
-            opacity: 2;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-
-        .user-info form button {
-            padding: 10px 5px;
-            width: 60%;
-            margin-top: 5px;
-            color: #fff;
-            font-weight: 600;
-            background-image: linear-gradient(to right, #434343 0%, black 100%);
-            border-radius: 20px;
-            border: none;
-            cursor: pointer;
-            letter-spacing: 1px;
-            transition: 0.3s ease;
-        }
-
-        .user-info form button:hover {
-            background-image: linear-gradient(to right, black 0%, #434343 100%);
-            box-shadow: 2px 2px 10px #f2ecec;
-        }
-
-        .user-info .fa-x {
-            position: relative;
-            top: -30px;
-            right: -43%;
-            color: #fff;
-            cursor: pointer;
-            transform: scale(1.3);
-            font-weight: bolder;
+            transform: scale(1);
         }
 
         .game-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background-image: linear-gradient(to right, #434343 0%, black 100%);
-            position: absolute;
-            top: 100px;
-            width: 40%;
-            height: 60vh;
-            box-shadow: 1px 1px 10px #c9c4c4;
-            transform: translateY(-200%);
-            transition: 0.3s ease;
-        }
-
-        .game-container.show-game-container {
             transform: translateY(0);
-        }
-
-        .game-container h3 {
-            color: #fff;
-            margin-top: -40px;
-        }
-
-        .Guess-Form {
-            padding: 15px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .Guess-Form input {
-            border: none;
-            outline: none;
-            padding: 12px 20px;
-            color: rgb(23, 5, 5);
-            letter-spacing: 1px;
-        }
-
-        .Guess-Form button {
-            cursor: pointer;
-            border: none;
-            color: rgb(23, 5, 5);
-            padding: 8px 15px 9px 15px;
-            transition: 0.3s ease;
-        }
-
-        .Guess-Form button:hover {
-            box-shadow: 1px 1px 10px #e1dddd;
-        }
-
-        .Guess-Form button i {
-            font-size: 1.2rem;
-        }
-
-        .game-container h2 {
-            color: #fff;
-            display: flex;
-            text-align: center;
-            align-items: center;
-            text-shadow: 1px 1px 10px rgb(26, 25, 27);
-        }
-
-        .game-container .fa-x {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-weight: 900;
-            color: #fff;
-            cursor: pointer;
-        }
-
-        .closeAfterGame {
-            padding: 10px 30px;
-            margin: 10px 0 10px 0;
-            cursor: pointer;
-            border: none;
-            border-radius: 25px;
-            background-image: linear-gradient(to right, #434343 0%, black 100%);
-            color: #fff;
-            letter-spacing: 1px;
-            transition: 0.3s ease;
-            visibility: hidden;
-        }
-
-        .closeAfterGame:hover {
-            background-image: linear-gradient(to right, black 0%, #434343 100%);
-            box-shadow: 1px 1px 10px #fff;
-        }
-
-        .history-container {
-            position: absolute;
-            right: 10px;
-            top: 100px;
-            height: 60vh;
-            z-index: 6;
-            backdrop-filter: blur(35px);
-            width: 250px;
-            box-shadow: 1px 1px 10px #e6dfdf;
-            background-image: linear-gradient(to right, #434343 0%, black 100%);
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            transform: translateX(200%);
+            transform: scale(0.00001);
             overflow: hidden;
             transition: 0.3s ease;
         }
 
-        .history-container.show-hc {
+        .game-container.show-game-container {
+            transform: scale(1);
+        }
+
+        .history-container {
             transform: translateX(0);
+            width: 0;
+            transition: 0.3s ease;
         }
 
-        .history-container h2 {
-            position: absolute;
-            top: 0;
-            text-align: center;
-            width: 100%;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            backdrop-filter: blur(10px);
-            color: #e6dfdf;
-            box-shadow: 1px 1px 10px #fff;
-            text-shadow: 1px 1px 10px rgb(47, 166, 166);
-            z-index: 5;
+        .history-container.show-hc {
+            width: 250px;
         }
-
-        .history-container ul {
-            margin-top: 60px;
-            text-align: center;
-            width: 95%;
-            padding: 2px 10px;
-            backdrop-filter: blur(10px);
-            overflow-y: scroll;
-            overflow-x: hidden;
-        }
-
-        .history-container ul li {
-            border: 1px dotted grey;
-            padding: 10px 5px;
-            color: #f2ecec;
-            overflow-x: scroll;
-            overflow-y: hidden;
-            font-size: 1rem;
-            margin: 5px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 1px 1px 5px #e1dddd;
-        }
-
-        .history-container ul li:hover .fa-trash {
-            display: block;
-            background-color: grey;
-            color: #fff;
-        }
-
-        .fa-trash {
-            width: 65%;
-            opacity: 2;
-            cursor: pointer;
-            padding: 5px;
-            transform: scale(1.3);
-            position: absolute;
-            display: none;
-        }
-
-        @media (max-width:1000px) {
-            .fa-trash {
-                width: 10%;
-                padding: 4px 5px;
-                position: absolute;
-                right: 15px;
-                transform: scale(1);
-                background: grey;
-                border-radius: 50%;
-            }
-        }
-
-        #guesses {
-            color: #ccc;
-            margin: 10px 0;
-            box-shadow: 1px 1px 10px #434343;
-            padding: 5px;
-        }
-
-        #bar,
-        #chc {
-            position: absolute;
-            top: 2rem;
-            right: 1rem;
-            transform: scale(1.5);
-            color: #ccc;
-            cursor: pointer;
-            z-index: 6;
-        }
-
-        #chc {
-            position: absolute;
-            right: 1.1rem;
-            transform: scale(1.3);
-            display: none;
-        }
-
-
-        @media (max-width:900px) {
-            .landing-container {
-                width: 60%;
-            }
-
-            .game-container {
-                width: 80%;
-            }
-        }
-
-        @media (max-width:600px) {
-            .header h1 {
-                padding: 0 20px;
-                font-size: 1.5rem;
-            }
-
-            .landing-container {
-                margin-top: -50px;
-                width: 90%;
-                padding: 0;
-            }
-
-            .game-container {
-                width: 90%;
-            }
-
-            .landing-container h2 {
-                padding: 10px 0;
-            }
-
-            .history-container {
-                position: absolute;
-                top: 80px;
-                height: 80vh;
-            }
-
-            #bar,
-            #chc {
-                top: 27px;
-            }
-
-            #result, #guesses{
-                font-size: 80%;
-            }
-        }
-
-        /* Major Changes for Small Devics */
-
-        @media (max-width:600px) {
-                .user-info {
-                    transform: translateY(0);
-                    transform: scale(0.00001);
-                    overflow: hidden;
-                    transition: 0.3s ease;
-                    position: absolute;
-                    top: 200px;
-                    transition: 0.3s ease;
-                }
-
-                .user-info.show-user-info {
-                    transform: scale(1);
-                }
-
-                .game-container {
-                    transform: translateY(0);
-                    transform: scale(0.00001);
-                    overflow: hidden;
-                    transition: 0.3s ease;
-                }
-
-                .game-container.show-game-container {
-                    transform: scale(1);
-                }
-
-                .history-container {
-                    transform: translateX(0);
-                    width: 0;
-                    transition: 0.3s ease;
-                }
-
-                .history-container.show-hc {
-                    width: 250px;
-                }
-            }
+    }
