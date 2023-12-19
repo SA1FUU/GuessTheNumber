@@ -27,11 +27,11 @@ container.addEventListener("click", (e) => {
 // Function to Save Profile Data
 
 function SaveGameHistory() {
-    localStorage.setItem("data", container.innerHTML)
+    localStorage.setItem("gtn-history", container.innerHTML)
 }
 
 function ShowGameHistory() {
-    container.innerHTML = localStorage.getItem("data")
+    container.innerHTML = localStorage.getItem("gtn-history")
 }
 
 // Random Number Concept
